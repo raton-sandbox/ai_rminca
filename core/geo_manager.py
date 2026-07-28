@@ -23,7 +23,6 @@ class CatalogoRutas:
     _glosario = None            # DataFrame de definiciones.json / glosario
 
     @classmethod
-    @classmethod
     def cargar_componentes(cls) -> bool:
         """
         Carga de manera segura todos los archivos JSON del sistema a la memoria RAM.
