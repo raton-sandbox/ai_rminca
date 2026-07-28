@@ -11,7 +11,7 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ratón de Minca - Banco de Pruebas Web</title>
+  <title>Ratón de Minca - Rata auxiliar guia de campo</title>
   <style>
     :root {
       --bg-color: #0d1117;
@@ -218,14 +218,14 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       <label for="envSelect">Entorno de API:</label>
       <select id="envSelect" onchange="updateTargetUrl()">
         <option value="http://127.0.0.1:8000">Localhost (Uvicorn - PC)</option>
-        <option value="https://raton-minca-api.onrender.com">Nube (Render Cloud)</option>
+        <option value="https://ai-rminca.onrender.com">Nube (Render Cloud)</option>
         <option value="custom">Personalizado...</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="apiUrlInput">Endpoint Activo:</label>
-      <input type="text" id="apiUrlInput" value="http://127.0.0.1:8000" />
+      <input type="text" id="apiUrlInput" value="https://ai-rminca.onrender.com" />
     </div>
 
     <div class="form-group">
@@ -303,7 +303,7 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       logTrace(`❌ Error de conexión: ${err.message}`);
     }
   }
-
+  
   async function sendMessage() {
     const inputElement = document.getElementById('userInput');
     const messageText = inputElement.value.trim();
@@ -319,7 +319,8 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       const response = await fetch(`${activeApiUrl}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: messageText })
+        // 1. CAMBIO: Enviar "prompt" para que FastAPI lo entienda
+        body: JSON.stringify({ prompt: messageText })
       });
 
       if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
@@ -327,9 +328,12 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       const data = await response.json();
       removeMessage(loadingId);
 
-      if (data.reply) {
-        appendMessage(data.reply, 'bot');
-        logTrace(`Respuesta recibida correctamente (${data.reply.length} chars).`);
+      // 2. CAMBIO: Leer "respuesta" (FastAPI/Groq) o "reply" por compatibilidad
+      const botReply = data.respuesta || data.reply;
+
+      if (botReply) {
+        appendMessage(botReply, 'bot');
+        logTrace(`Respuesta recibida correctamente (${botReply.length} chars).`);
       } else {
         appendMessage('⚠️ Respuesta vacía desde el backend.', 'bot');
         logTrace('⚠️ Respuesta con payload vacío.');
@@ -340,6 +344,8 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       logTrace(`❌ Fallo en fetch: ${error.message}`);
     }
   }
+
+
 
   function handleKeyPress(event) {
     if (event.key === 'Enter') sendMessage();

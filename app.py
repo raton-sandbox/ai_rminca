@@ -35,13 +35,14 @@ app.add_middleware(
 
 # Estructura del cuerpo de la petición
 class UserQuery(BaseModel):
-    message: str
+    prompt : str
 
 # Inicialización al arrancar el servidor web en la nube
 @app.on_event("startup")
 
 def startup_event():
     # Invocación directa y segura de la función subyacente del classmethod
+    # se puede regresar a la forma normal ()
     if CatalogoRutas.cargar_componentes.__func__(CatalogoRutas):
         inicializar_listas_analiticas_ram()
         print("🚀 [CLOUD BACKEND]: Base de datos RAM e IA Groq inicializadas")
@@ -52,7 +53,7 @@ def health_check():
 
 @app.post("/chat")
 def process_chat(query: UserQuery):
-    user_text = query.message.strip()
+    user_text = query.prompt.strip()
     if not user_text:
         raise HTTPException(status_code=400, detail="El mensaje no puede estar vacío")
 
@@ -68,4 +69,4 @@ def process_chat(query: UserQuery):
     finally:
         sys.stdout = old_stdout
 
-    return {"reply": output_text}
+    return {"respuesta": output_text, "reply": output_text}
