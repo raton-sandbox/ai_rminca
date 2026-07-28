@@ -16,6 +16,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+
+
 # Carga e inicialización de tu orquestador existente
 from raton import CatalogoRutas, inicializar_listas_analiticas_ram, orquestar_pipeline
 
@@ -37,10 +39,12 @@ class UserQuery(BaseModel):
 
 # Inicialización al arrancar el servidor web en la nube
 @app.on_event("startup")
+
 def startup_event():
-    if CatalogoRutas.cargar_componentes():
+    # Invocación directa y segura de la función subyacente del classmethod
+    if CatalogoRutas.cargar_componentes.__func__(CatalogoRutas):
         inicializar_listas_analiticas_ram()
-        print("🚀 [CLOUD BACKEND]: Base de datos RAM e IA Groq inicializadas con éxito.")
+        print("🚀 [CLOUD BACKEND]: Base de datos RAM e IA Groq inicializadas")
 
 @app.get("/")
 def health_check():
