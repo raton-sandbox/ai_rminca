@@ -1,0 +1,13 @@
+# ==============================================================================
+# PROYECTO: Ratón de Minca 
+# ARCHIVO: requirements.txt
+# TIMESTAMP: 2026-07-28T10:49:44-05:00
+# ==============================================================================
+fastapi>=0.100.0
+uvicorn>=0.20.0
+pandas
+groq
+pydantic
+requests
+python-dotenv
+beautifulsoup4>=4.12

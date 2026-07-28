@@ -1,0 +1,36 @@
+// URL Fija de Producción en el Servidor Abierto (Ejemplo)
+//const API_URL = "https://raton-minca-api.onrender.com"; 
+const API_URL = "http://127.0.0.1:8000";
+async function sendMessage() {
+  const inputElement = document.getElementById('userInput');
+  const messageText = inputElement.value.trim();
+  if (!messageText) return;
+
+  appendMessage(messageText, 'user');
+  inputElement.value = '';
+
+  const loadingId = appendMessage('Consultando rutas e IA', 'bot', true);
+
+  try {
+    const response = await fetch(`${API_URL}/chat`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ message: messageText })
+    });
+
+    const data = await response.json();
+    removeMessage(loadingId);
+
+    if (data.reply) {
+      appendMessage(data.reply, 'bot');
+    } else {
+      appendMessage('⚠️ Respuesta vacía del servidor.', 'bot');
+    }
+  } catch (error) {
+    removeMessage(loadingId);
+    appendMessage('❌ Error de conexión con la API en la nube.', 'bot');
+    console.error(error);
+  }
+}

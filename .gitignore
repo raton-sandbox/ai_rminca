@@ -1,0 +1,32 @@
+# Compilados de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.jsonl
+
+# Entornos virtuales (si usas uno)
+venv/
+.venv/
+env/
+
+# Variables de entorno y claves secretas
+.env
+
+# Archivos de configuración de editores/IDE
+.vscode/
+.idea/
+
+# Archivos temporales del sistema
+Thumbs.db
+Desktop.ini
+
+# Carpeta con archivos txt descriptivos del website
+textos/
+*.csv
+*.xlsx
+# Ignora los archivos temporales que crea Excel al abrir un libro (empiezan por ~$)
+~$*.xls
+~$*
+
+

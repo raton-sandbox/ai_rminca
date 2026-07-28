@@ -1,0 +1,947 @@
+[
+    {
+        "zona": "Bondigua",
+        "padre": "Bonda",
+        "sinonimos": "Pozo de Bondigua, Cascada de Bondigua"
+    },
+    {
+        "zona": "Bunkuany",
+        "padre": "Bonda",
+        "sinonimos": "Bunkuany"
+    },
+    {
+        "zona": "Cascada de Silvestre",
+        "padre": "Bonda",
+        "sinonimos": "Cascada de Silvestre"
+    },
+    {
+        "zona": "Corazón Partio",
+        "padre": "Bonda",
+        "sinonimos": "Cascada Corazón Partio, Corazón Partio"
+    },
+    {
+        "zona": "Donama",
+        "padre": "Bonda",
+        "sinonimos": "Donama, Piedra de Donama"
+    },
+    {
+        "zona": "El Boqueron",
+        "padre": "Bonda",
+        "sinonimos": "El Boqueron, Boqueron, Boqueron bonda"
+    },
+    {
+        "zona": "El Curval",
+        "padre": "Bonda",
+        "sinonimos": "El Curval"
+    },
+    {
+        "zona": "El Oasis",
+        "padre": "Bonda",
+        "sinonimos": "El Oasis, Cabaña El Oasis"
+    },
+    {
+        "zona": "El Recreo",
+        "padre": "Bonda",
+        "sinonimos": "El Recreo"
+    },
+    {
+        "zona": "El velo de la Novia",
+        "padre": "Bonda",
+        "sinonimos": "El velo de la Novia, Cascada el Velo de la Novia"
+    },
+    {
+        "zona": "Hacienda Manzanares",
+        "padre": "Bonda",
+        "sinonimos": "Hacienda Manzanares, manzanares"
+    },
+    {
+        "zona": "Jirocasaca",
+        "padre": "Bonda",
+        "sinonimos": "Jirocasaca, hacienda jirocasaca"
+    },
+    {
+        "zona": "La Bogotana",
+        "padre": "Bonda",
+        "sinonimos": "La Bogotana, Hacienda la Bogotana"
+    },
+    {
+        "zona": "La Estacion",
+        "padre": "Bonda",
+        "sinonimos": "La Estacion"
+    },
+    {
+        "zona": "La Lisa",
+        "padre": "Bonda",
+        "sinonimos": "La Lisa"
+    },
+    {
+        "zona": "Las Nubes",
+        "padre": "Bonda",
+        "sinonimos": "Las Nubes"
+    },
+    {
+        "zona": "Masinga",
+        "padre": "Bonda",
+        "sinonimos": "Masinga"
+    },
+    {
+        "zona": "Onaca",
+        "padre": "Bonda",
+        "sinonimos": "Onaca"
+    },
+    {
+        "zona": "Paso del Mango",
+        "padre": "Bonda",
+        "sinonimos": "Paso del Mango"
+    },
+    {
+        "zona": "Peaje de Neguanje",
+        "padre": "Bonda",
+        "sinonimos": "Peaje de Neguanje"
+    },
+    {
+        "zona": "Penjamo",
+        "padre": "Bonda",
+        "sinonimos": "Penjamo"
+    },
+    {
+        "zona": "Piedras Blancas",
+        "padre": "Bonda",
+        "sinonimos": "Piedras Blancas"
+    },
+    {
+        "zona": "Poza verde",
+        "padre": "Bonda",
+        "sinonimos": "Poza verde, Cascada Poza Verde, Finca La Sirena"
+    },
+    {
+        "zona": "Punto Fijo",
+        "padre": "Bonda",
+        "sinonimos": "Punto Fijo"
+    },
+    {
+        "zona": "Rio Manzanares",
+        "padre": "Bonda",
+        "sinonimos": "Rio Manzanares"
+    },
+    {
+        "zona": "Sabana Limon",
+        "padre": "Bonda",
+        "sinonimos": "Sabana Limon"
+    },
+    {
+        "zona": "Sabanas de Bonda",
+        "padre": "Bonda",
+        "sinonimos": "Sabanas de Bonda"
+    },
+    {
+        "zona": "San Isidro",
+        "padre": "Bonda",
+        "sinonimos": "San Isidro, El parámo"
+    },
+    {
+        "zona": "Sierra Limon",
+        "padre": "Bonda",
+        "sinonimos": "Sierra Limon"
+    },
+    {
+        "zona": "Teheran",
+        "padre": "Bonda",
+        "sinonimos": "Las Mesitas, Teheran"
+    },
+    {
+        "zona": "Tinajas",
+        "padre": "Bonda",
+        "sinonimos": "Tinajas"
+    },
+    {
+        "zona": "Transjordania",
+        "padre": "Bonda",
+        "sinonimos": "Transjordania"
+    },
+    {
+        "zona": "Cienaga",
+        "padre": "master",
+        "sinonimos": "Cíenaga, ciénaga"
+    },
+    {
+        "zona": "Aguas Lindas Altas",
+        "padre": "Cienaga",
+        "sinonimos": "Aguas Lindas Altas"
+    },
+    {
+        "zona": "Aguas Lindas Bajas",
+        "padre": "Cienaga",
+        "sinonimos": "Aguas Lindas Bajas"
+    },
+    {
+        "zona": "El Congo",
+        "padre": "Cienaga",
+        "sinonimos": "El Congo, ciudad antigua"
+    },
+    {
+        "zona": "El Vvolcan",
+        "padre": "Cienaga",
+        "sinonimos": "El volcan"
+    },
+    {
+        "zona": "Jolonura",
+        "padre": "Cienaga",
+        "sinonimos": "Jolonura"
+    },
+    {
+        "zona": "Los Moros",
+        "padre": "Cienaga",
+        "sinonimos": "Los Moros"
+    },
+    {
+        "zona": "Palmor",
+        "padre": "Cienaga",
+        "sinonimos": "Palmor"
+    },
+    {
+        "zona": "Pozo de los Anillos",
+        "padre": "Cienaga",
+        "sinonimos": "Pozo de los Anillos, Poza de los anillos"
+    },
+    {
+        "zona": "Rio Sevilla",
+        "padre": "Cienaga",
+        "sinonimos": "Rio Sevilla"
+    },
+    {
+        "zona": "Rio Toribio",
+        "padre": "Cienaga",
+        "sinonimos": "Rio Toribio"
+    },
+    {
+        "zona": "San Javier",
+        "padre": "Cienaga",
+        "sinonimos": "San Javier"
+    },
+    {
+        "zona": "San Pedro",
+        "padre": "Cienaga",
+        "sinonimos": "San Pedro"
+    },
+    {
+        "zona": "Ciénaga la Atascosa",
+        "padre": "Sitio Nuevo",
+        "sinonimos": "Ciénaga la Atascosa"
+    },
+    {
+        "zona": "Caño Clarín Viejo",
+        "padre": "Sitio Nuevo",
+        "sinonimos": "Caño Clarín Viejo"
+    },
+    {
+        "zona": "Desembocadura Rio Palomino",
+        "padre": "Dibulla",
+        "sinonimos": "Desembocadura Rio Palomino"
+    },
+    {
+        "zona": "Mingueo",
+        "padre": "Dibulla",
+        "sinonimos": "Mingueo"
+    },
+    {
+        "zona": "Palomino",
+        "padre": "Dibulla",
+        "sinonimos": "Palomino"
+    },
+    {
+        "zona": "Los Naranjos",
+        "padre": "Dibulla",
+        "sinonimos": "Los Naranjos"
+    },
+    {
+        "zona": "Achiotes",
+        "padre": "Guachaca",
+        "sinonimos": "Achiotes"
+    },
+    {
+        "zona": "Aguacatera",
+        "padre": "Guachaca",
+        "sinonimos": "Aguacatera"
+    },
+    {
+        "zona": "Barlovento",
+        "padre": "Guachaca",
+        "sinonimos": "Barlovento"
+    },
+    {
+        "zona": "Buritaca",
+        "padre": "Guachaca",
+        "sinonimos": "Buritaca, rio buritaca"
+    },
+    {
+        "zona": "Calabazo",
+        "padre": "Guachaca",
+        "sinonimos": "Calabazo"
+    },
+    {
+        "zona": "Casa de Tabla",
+        "padre": "Guachaca",
+        "sinonimos": "Casa de Tabla"
+    },
+    {
+        "zona": "Caserio Mendihuaca",
+        "padre": "Guachaca",
+        "sinonimos": "Caserio Mendihuaca"
+    },
+    {
+        "zona": "Centro Comerdial Plaza Tayrona",
+        "padre": "Guachaca",
+        "sinonimos": "Centro Comerdial Plaza Tayrona"
+    },
+    {
+        "zona": "Desembocadura Rio Buritaca",
+        "padre": "Guachaca",
+        "sinonimos": "Desembocadura Rio Buritaca"
+    },
+    {
+        "zona": "Desembocadura Rio Don Diego",
+        "padre": "Guachaca",
+        "sinonimos": "Desembocadura Rio Don Diego"
+    },
+    {
+        "zona": "Desembocadura Rio Guachaca",
+        "padre": "Guachaca",
+        "sinonimos": "Desembocadura Rio Guachaca"
+    },
+    {
+        "zona": "Desembocadura Rio Mendihuaca",
+        "padre": "Guachaca",
+        "sinonimos": "Desembocadura Rio Mendihuaca, Estuario Rio Mendihuaca"
+    },
+    {
+        "zona": "Don Diego",
+        "padre": "Guachaca",
+        "sinonimos": "Don Diego, rio don diego"
+    },
+    {
+        "zona": "Don Dieguito",
+        "padre": "Guachaca",
+        "sinonimos": "Don Dieguito"
+    },
+    {
+        "zona": "El Encanto",
+        "padre": "Guachaca",
+        "sinonimos": "El Encanto, Gotsezhy"
+    },
+    {
+        "zona": "El Saltillo",
+        "padre": "Guachaca",
+        "sinonimos": "El Saltillo"
+    },
+    {
+        "zona": "EL Zaino",
+        "padre": "Guachaca",
+        "sinonimos": "EL Zaino, Cañaveral"
+    },
+    {
+        "zona": "La Aguacatera",
+        "padre": "Guachaca",
+        "sinonimos": "La Aguacatera, Aguacatera, Entrada a Ciudad Perdida"
+    },
+    {
+        "zona": "La Playita",
+        "padre": "Guachaca",
+        "sinonimos": "La Playita, Finca La Playita"
+    },
+    {
+        "zona": "La Estrella",
+        "padre": "Guachaca",
+        "sinonimos": "La Estrella"
+    },
+    {
+        "zona": "La Frutera",
+        "padre": "Guachaca",
+        "sinonimos": "La Frutera"
+    },
+    {
+        "zona": "La Jorara",
+        "padre": "Guachaca",
+        "sinonimos": "La Jorara"
+    },
+    {
+        "zona": "La Revuelta",
+        "padre": "Guachaca",
+        "sinonimos": "La Revuelta"
+    },
+    {
+        "zona": "Los Cocos",
+        "padre": "Guachaca",
+        "sinonimos": "Los Cocos"
+    },
+    {
+        "zona": "Los Coquitos",
+        "padre": "Guachaca",
+        "sinonimos": "Los Coquitos"
+    },
+    {
+        "zona": "Los Linderos",
+        "padre": "Guachaca",
+        "sinonimos": "Los Linderos"
+    },
+    {
+        "zona": "Los Muchachitos",
+        "padre": "Guachaca",
+        "sinonimos": "Los Muchachitos"
+    },
+    {
+        "zona": "Machete",
+        "padre": "Guachaca",
+        "sinonimos": "Machete, machete pelao"
+    },
+    {
+        "zona": "El Mamey",
+        "padre": "Guachaca",
+        "sinonimos": "El Mamey, Mamey"
+    },
+    {
+        "zona": "Mechones",
+        "padre": "Guachaca",
+        "sinonimos": "Mechones"
+    },
+    {
+        "zona": "Mendihuaca",
+        "padre": "Guachaca",
+        "sinonimos": "Mendihuaca"
+    },
+    {
+        "zona": "Nuevo  Mexico",
+        "padre": "Guachaca",
+        "sinonimos": "Nuevo  Mexico, mexico"
+    },
+    {
+        "zona": "Orinoco",
+        "padre": "Guachaca",
+        "sinonimos": "Orinoco"
+    },
+    {
+        "zona": "Paloquemao",
+        "padre": "Guachaca",
+        "sinonimos": "Paloquemao"
+    },
+    {
+        "zona": "Poza Arco Iris",
+        "padre": "Guachaca",
+        "sinonimos": "Poza Arco Iris"
+    },
+    {
+        "zona": "Puente Rio Buritaca",
+        "padre": "Guachaca",
+        "sinonimos": "Puente Rio Buritaca"
+    },
+    {
+        "zona": "Puente Rio Guachaca",
+        "padre": "Guachaca",
+        "sinonimos": "Puente Rio Guachaca"
+    },
+    {
+        "zona": "Puente Rio Don Diego",
+        "padre": "Guachaca",
+        "sinonimos": "Puente Rio Don Diego"
+    },
+    {
+        "zona": "Puente Rio Ancho",
+        "padre": "Guachaca",
+        "sinonimos": "Puente Rio Ancho"
+    },
+    {
+        "zona": "Puente Rio Negro",
+        "padre": "Guachaca",
+        "sinonimos": "Puente Rio Negro"
+    },
+    {
+        "zona": "Puente Rio San Salvador",
+        "padre": "Guachaca",
+        "sinonimos": "Puente Rio San Salvador"
+    },
+    {
+        "zona": "Puerto Nuevo",
+        "padre": "Guachaca",
+        "sinonimos": "Puerto Nuevo"
+    },
+    {
+        "zona": "Quebrada del Platano",
+        "padre": "Guachaca",
+        "sinonimos": "Quebrada del Platano"
+    },
+    {
+        "zona": "Quebrada Maria",
+        "padre": "Guachaca",
+        "sinonimos": "Quebrada Maria"
+    },
+    {
+        "zona": "Quebrada Valencia",
+        "padre": "Guachaca",
+        "sinonimos": "Quebrada Valencia"
+    },
+    {
+        "zona": "San Rafael",
+        "padre": "Guachaca",
+        "sinonimos": "San Rafael"
+    },
+    {
+        "zona": "Terrazas del Cacique",
+        "padre": "Guachaca",
+        "sinonimos": "Terrazas del Cacique"
+    },
+    {
+        "zona": "Dibulla",
+        "padre": "master",
+        "sinonimos": "Dibulla"
+    },
+    {
+        "zona": "Pueblo Bello",
+        "padre": "master",
+        "sinonimos": "Pueblo Bello"
+    },
+    {
+        "zona": "Santa Marta",
+        "padre": "master",
+        "sinonimos": "santa marta, la samaria, municipio de Santa Marta"
+    },
+    {
+        "zona": "Sitio Nuevo",
+        "padre": "master",
+        "sinonimos": "Sitio Nuevo"
+    },
+    {
+        "zona": "Belen",
+        "padre": "MInca",
+        "sinonimos": "Belen, El Belen, Carmen de Belen"
+    },
+    {
+        "zona": "Bellavista la Ye",
+        "padre": "Minca",
+        "sinonimos": "La Ye, La Ye de la Tagua, Bellavista, LA Ye Vista Nieves"
+    },
+    {
+        "zona": "Cascada el Jaguar",
+        "padre": "Minca",
+        "sinonimos": "Cascada el Jaguar"
+    },
+    {
+        "zona": "Cerro Kennedy",
+        "padre": "Minca",
+        "sinonimos": "Cerro Kennedy"
+    },
+    {
+        "zona": "Cincinati",
+        "padre": "MInca",
+        "sinonimos": "Cincinatti, Cincinati"
+    },
+    {
+        "zona": "El Campano",
+        "padre": "MInca",
+        "sinonimos": "El Campano, Campano"
+    },
+    {
+        "zona": "El Dorado",
+        "padre": "Minca",
+        "sinonimos": "Reserva El Dorado, EL Dorado, proaves"
+    },
+    {
+        "zona": "El Naranjal",
+        "padre": "Minca",
+        "sinonimos": "EL Naranjal"
+    },
+    {
+        "zona": "EL Venado",
+        "padre": "Minca",
+        "sinonimos": "El Venado, quebrada el Venado"
+    },
+    {
+        "zona": "Jamonacal",
+        "padre": "Minca",
+        "sinonimos": "Jamonacal, Vereda Jamonacal"
+    },
+    {
+        "zona": "La Canal",
+        "padre": "MInca",
+        "sinonimos": "La Canal"
+    },
+    {
+        "zona": "La Curva",
+        "padre": "Minca",
+        "sinonimos": "La Curva"
+    },
+    {
+        "zona": "La Iguana Verde",
+        "padre": "Minca",
+        "sinonimos": "La Iguana Verde"
+    },
+    {
+        "zona": "La Planta",
+        "padre": "Minca",
+        "sinonimos": "La Planta"
+    },
+    {
+        "zona": "La Tagua",
+        "padre": "MInca",
+        "sinonimos": "La Tagua, El Escudo"
+    },
+    {
+        "zona": "La Victoria",
+        "padre": "Minca",
+        "sinonimos": "La Victoria, Hacienda La Victoria"
+    },
+    {
+        "zona": "Las Cabañas",
+        "padre": "Minca",
+        "sinonimos": "Las Cabañas"
+    },
+    {
+        "zona": "los Cordobas",
+        "padre": "Minca",
+        "sinonimos": "Los Cordobas, la Central Los Cordobas, central los cordobas"
+    },
+    {
+        "zona": "Los Pinos",
+        "padre": "Minca",
+        "sinonimos": "Los Pinos"
+    },
+    {
+        "zona": "Marinka",
+        "padre": "MInca",
+        "sinonimos": "Marinka"
+    },
+    {
+        "zona": "Mundo Nuevo",
+        "padre": "MInca",
+        "sinonimos": "Mundi Nuevo, Mundo Nuevo, Nuevo mundo"
+    },
+    {
+        "zona": "Pozo Azul",
+        "padre": "Minca",
+        "sinonimos": "Pozo Azul"
+    },
+    {
+        "zona": "Puente Ladino",
+        "padre": "MInca",
+        "sinonimos": "Puente Ladino, Puente curvo"
+    },
+    {
+        "zona": "San Lorenzo",
+        "padre": "Minca",
+        "sinonimos": "Cerro de San Lorenzo,San Lorenzo, El Ramo"
+    },
+    {
+        "zona": "Tigrera",
+        "padre": "Minca",
+        "sinonimos": "Tigrera, La Tigrera"
+    },
+    {
+        "zona": "Vista Nieves",
+        "padre": "Minca",
+        "sinonimos": "Vista Nieves"
+    },
+    {
+        "zona": "Rio Ancho",
+        "padre": "Dibulla",
+        "sinonimos": "Rio Ancho"
+    },
+    {
+        "zona": "Las Gaviotas",
+        "padre": "Palomino",
+        "sinonimos": "Las Gaviotas"
+    },
+    {
+        "zona": "Sebiaka",
+        "padre": "Palomino",
+        "sinonimos": "Sebiaka, pueblo indigena palomino"
+    },
+    {
+        "zona": "Tungeka",
+        "padre": "Palomino",
+        "sinonimos": "Tungeka, pueblo indigena rio ancho"
+    },
+    {
+        "zona": "Rio Palomino Tubing",
+        "padre": "Palomino",
+        "sinonimos": "Rio Palomino Tubing"
+    },
+    {
+        "zona": "Ciudad Perdida",
+        "padre": "Parque Sierra Nevada",
+        "sinonimos": "Ciudad Perdida, Buritaca 200,  Teyuna"
+    },
+    {
+        "zona": "Don Dieguito",
+        "padre": "Parque Sierra Nevada",
+        "sinonimos": "Don Dieguito"
+    },
+    {
+        "zona": "Desembocadura rio Don Dieguito",
+        "padre": "Parque Sierra Nevada",
+        "sinonimos": "Desembocadura rio Don Dieguito"
+    },
+    {
+        "zona": "Katanzama",
+        "padre": "Parque Sierra Nevada",
+        "sinonimos": "Katanzama"
+    },
+    {
+        "zona": "La Lengüeta",
+        "padre": "Parque Sierra Nevada",
+        "sinonimos": "La Lengüeta, la lengueta"
+    },
+    {
+        "zona": "Mamaice",
+        "padre": "Parque Sierra Nevada",
+        "sinonimos": "Mamaice"
+    },
+    {
+        "zona": "Perico Aguado",
+        "padre": "Parque Sierra Nevada",
+        "sinonimos": "Perico Aguado"
+    },
+    {
+        "zona": "Taminaka",
+        "padre": "Parque Sierra Nevada",
+        "sinonimos": "Taminaka"
+    },
+    {
+        "zona": "Arrecifes",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Arrecifes"
+    },
+    {
+        "zona": "Bahía Concha",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Bahia Concha, bahía concha"
+    },
+    {
+        "zona": "Calabazo",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Calabazo, colinas de calabazo"
+    },
+    {
+        "zona": "Cañaveral",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Cañaveral"
+    },
+    {
+        "zona": "Chengue",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Chengue"
+    },
+    {
+        "zona": "Cinto",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Cinto, bahia de cinto"
+    },
+    {
+        "zona": "Desembocadura Rio Piedras",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Desembocadura Rio Piedras, los naranjos"
+    },
+    {
+        "zona": "El  Sapo",
+        "padre": "Parque Tayrona",
+        "sinonimos": "El  Sapo"
+    },
+    {
+        "zona": "El Cabo",
+        "padre": "Parque Tayrona",
+        "sinonimos": "El Cabo"
+    },
+    {
+        "zona": "Gairaca",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Gairaca"
+    },
+    {
+        "zona": "Guachaquita",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Guachaquita"
+    },
+    {
+        "zona": "Loma del Pajaro",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Loma del Pajaro, mirador del café, mirador del cafe"
+    },
+    {
+        "zona": "Neguanje",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Neguanje, bahia neguanje, playa neguanje, playa cristales"
+    },
+    {
+        "zona": "Palmarito",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Palmarito"
+    },
+    {
+        "zona": "Piscina",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Piscina"
+    },
+    {
+        "zona": "Playa Brava",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Playa Brava"
+    },
+    {
+        "zona": "Playa Cañaveral",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Playa Cañaveral"
+    },
+    {
+        "zona": "Playa Castilletes",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Playa Castilletes"
+    },
+    {
+        "zona": "Playa Naranjos",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Playa Naranjos"
+    },
+    {
+        "zona": "Playa San Felipe",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Playa San Felipe"
+    },
+    {
+        "zona": "Pueblito Tayrona",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Pueblito Tayrona, Chairama"
+    },
+    {
+        "zona": "Pueblo Bernardo",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Pueblo Bernardo"
+    },
+    {
+        "zona": "Siete Olas",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Siete Olas"
+    },
+    {
+        "zona": "Taganga",
+        "padre": "Parque Tayrona",
+        "sinonimos": "Taganga"
+    },
+    {
+        "zona": "NABUSIMAKE",
+        "padre": "Pueblo Bello",
+        "sinonimos": "Nabusimake"
+    },
+    {
+        "zona": "Bonda",
+        "padre": "Santa Marta",
+        "sinonimos": "Bonda, corregimiento de Bonda, Estacion de Policia de Bonda, bonda centro historico"
+    },
+    {
+        "zona": "Guachaca",
+        "padre": "Santa Marta",
+        "sinonimos": "Guachaca"
+    },
+    {
+        "zona": "Minca",
+        "padre": "Santa Marta",
+        "sinonimos": "Minca, Pueblo de Minka, Corregimiento de Minca, Estacion de Policia de Minca, Puente de Minca, minka"
+    },
+    {
+        "zona": "Parque Sierra Nevada",
+        "padre": "Santa Marta",
+        "sinonimos": "Resguardo Indigena, Parque Nacional Sierra Nevada, Parque Sierra Nevada, Sierra Nevada de Santa Marta"
+    },
+    {
+        "zona": "Parque Tayrona",
+        "padre": "Santa Marta",
+        "sinonimos": "Parque Nacional Tayrona, Tayrona, Parque Tayrona"
+    },
+    {
+        "zona": "Santa Marta-Urbano",
+        "padre": "Santa Marta",
+        "sinonimos": "Distrito, Santa Marta Urbano, Distrito de Santa Marta"
+    },
+    {
+        "zona": "Aeropuerto",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "Aeropuerto"
+    },
+    {
+        "zona": "Bello Horizonte",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "Bello Horizonte"
+    },
+    {
+        "zona": "Don Jaca",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "Don Jaca"
+    },
+    {
+        "zona": "Gaira",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "Gaira, Gaira Sena Agropecuario"
+    },
+    {
+        "zona": "Inka Inka",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "Inka Inka, inca inca"
+    },
+    {
+        "zona": "La Escollera",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "La Escollera, aquamarina"
+    },
+    {
+        "zona": "La Paz",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "La Paz"
+    },
+    {
+        "zona": "Mamatoco",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "Mamatoco"
+    },
+    {
+        "zona": "Playa Calderon",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "Playa Calderon"
+    },
+    {
+        "zona": "Pozos Colorados",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "Pozos Colorados"
+    },
+    {
+        "zona": "Rodadero",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "Rodadero"
+    },
+    {
+        "zona": "Sena Agropecuario",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "Sena Agropecuario, Sena Gaira"
+    },
+    {
+        "zona": "El Limon",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "Vereda el Limon, el limon"
+    },
+    {
+        "zona": "Aracataca",
+        "padre": "master",
+        "sinonimos": "Aracataca"
+    },
+    {
+        "zona": "Barranquilla",
+        "padre": "master",
+        "sinonimos": "Barranquilla"
+    },
+    {
+        "zona": "Cartagena",
+        "padre": "master",
+        "sinonimos": "Cartagena, Cartagena de indias"
+    },
+    {
+        "zona": "Valledupar",
+        "padre": "master",
+        "sinonimos": "Valledupar"
+    }
+]

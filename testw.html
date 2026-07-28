@@ -1,0 +1,374 @@
+<!--
+==============================================================================
+PROYECTO: Ratón de Minca - Guía de Senderos (Sierra Nevada de Santa Marta)
+ARCHIVO: test_bench.html (Página Independiente de Pruebas y Sandbox)
+TIMESTAMP: 2026-07-26T16:06:13-05:00
+DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
+==============================================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ratón de Minca - Banco de Pruebas Web</title>
+  <style>
+    :root {
+      --bg-color: #0d1117;
+      --panel-bg: #161b22;
+      --card-bg: #1e272c;
+      --accent-color: #2e7d32;
+      --accent-hover: #388e3c;
+      --text-color: #e6edf3;
+      --border-color: #30363d;
+      --bot-msg-bg: #263238;
+      --user-msg-bg: #1b5e20;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Panel de Control Lateral */
+    .control-panel {
+      width: 320px;
+      background-color: var(--panel-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .control-panel h2 {
+      font-size: 1.1rem;
+      color: #81c784;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      color: #8b949e;
+    }
+
+    .form-group select, .form-group input {
+      padding: 8px 12px;
+      background-color: #0d1117;
+      border: 1px solid var(--border-color);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .status-online { background-color: #1b5e20; color: #a5d6a7; }
+    .status-offline { background-color: #b71c1c; color: #ef9a9a; }
+
+    .console-log {
+      flex: 1;
+      background-color: #000;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: #00ff66;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Área Principal del Widget */
+    .viewport {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-color: var(--bg-color);
+    }
+
+    /* Estructura del Widget Chatbot */
+    .chat-container {
+      width: 100%;
+      max-width: 450px;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      overflow: hidden;
+    }
+
+    .chat-header {
+      padding: 15px;
+      background-color: var(--accent-color);
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .message.user {
+      align-self: flex-end;
+      background-color: var(--user-msg-bg);
+      color: #ffffff;
+      border-bottom-right-radius: 2px;
+    }
+
+    .message.bot {
+      align-self: flex-start;
+      background-color: var(--bot-msg-bg);
+      color: var(--text-color);
+      border-bottom-left-radius: 2px;
+      border: 1px solid #37474f;
+    }
+
+    .chat-input-area {
+      padding: 12px;
+      background-color: #1a2226;
+      display: flex;
+      gap: 8px;
+      border-top: 1px solid #2c3b42;
+    }
+
+    .chat-input-area input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #37474f;
+      border-radius: 6px;
+      background-color: #12181b;
+      color: #fff;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .chat-input-area input:focus {
+      border-color: var(--accent-color);
+    }
+
+    .chat-input-area button {
+      padding: 10px 16px;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .chat-input-area button:hover {
+      background-color: var(--accent-hover);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Panel de Control Técnico (Solo para Pruebas) -->
+  <div class="control-panel">
+    <h2>🛠️ Panel de Pruebas</h2>
+    
+    <div class="form-group">
+      <label for="envSelect">Entorno de API:</label>
+      <select id="envSelect" onchange="updateTargetUrl()">
+        <option value="http://127.0.0.1:8000">Localhost (Uvicorn - PC)</option>
+        <option value="https://raton-minca-api.onrender.com">Nube (Render Cloud)</option>
+        <option value="custom">Personalizado...</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="apiUrlInput">Endpoint Activo:</label>
+      <input type="text" id="apiUrlInput" value="http://127.0.0.1:8000" />
+    </div>
+
+    <div class="form-group">
+      <label>Estado del Backend:</label>
+      <span id="statusBadge" class="status-badge status-offline">Desconectado</span>
+    </div>
+
+    <button onclick="checkHealth()" style="padding: 8px; background: #21262d; color: #fff; border: 1px solid #30363d; border-radius: 6px; cursor: pointer;">
+      🔄 Probar Conexión (Healthcheck)
+    </button>
+
+    <div class="form-group" style="flex:1;">
+      <label>Logs de Consola:</label>
+      <div id="consoleLog" class="console-log">> Entorno de pruebas iniciado.</div>
+    </div>
+  </div>
+
+  <!-- Vista Previa del Widget -->
+  <div class="viewport">
+    <div class="chat-container">
+      <div class="chat-header">
+        🥾 Ratón de Minca - Sandbox Test
+      </div>
+      
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot">¡Hola! Soy el asistente virtual de la Sierra Nevada. Estoy listo para procesar tus consultas de prueba.</div>
+      </div>
+
+      <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Escribe tu consulta aquí..." onkeypress="handleKeyPress(event)" />
+        <button onclick="sendMessage()">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  let activeApiUrl = document.getElementById('apiUrlInput').value;
+
+  function logTrace(msg) {
+    const consoleEl = document.getElementById('consoleLog');
+    const time = new Date().toLocaleTimeString();
+    consoleEl.innerHTML += `\n[${time}] ${msg}`;
+    consoleEl.scrollTop = consoleEl.scrollHeight;
+  }
+
+  function updateTargetUrl() {
+    const select = document.getElementById('envSelect');
+    const input = document.getElementById('apiUrlInput');
+    if (select.value !== 'custom') {
+      input.value = select.value;
+    }
+    activeApiUrl = input.value;
+    logTrace(`URL de API actualizada a: ${activeApiUrl}`);
+    checkHealth();
+  }
+
+  async function checkHealth() {
+    activeApiUrl = document.getElementById('apiUrlInput').value;
+    const badge = document.getElementById('statusBadge');
+    logTrace(`Probando GET ${activeApiUrl}/ ...`);
+    
+    try {
+      const response = await fetch(`${activeApiUrl}/`, { method: 'GET' });
+      if (response.ok) {
+        const data = await response.json();
+        badge.className = "status-badge status-online";
+        badge.innerText = "ONLINE";
+        logTrace(`Respuesta API: ${JSON.stringify(data)}`);
+      } else {
+        throw new Error(`Status: ${response.status}`);
+      }
+    } catch (err) {
+      badge.className = "status-badge status-offline";
+      badge.innerText = "OFFLINE";
+      logTrace(`❌ Error de conexión: ${err.message}`);
+    }
+  }
+
+  async function sendMessage() {
+    const inputElement = document.getElementById('userInput');
+    const messageText = inputElement.value.trim();
+    if (!messageText) return;
+
+    appendMessage(messageText, 'user');
+    inputElement.value = '';
+
+    const loadingId = appendMessage('Consultando backend...', 'bot');
+    logTrace(`POST -> ${activeApiUrl}/chat | Payload: "${messageText}"`);
+
+    try {
+      const response = await fetch(`${activeApiUrl}/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: messageText })
+      });
+
+      if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
+
+      const data = await response.json();
+      removeMessage(loadingId);
+
+      if (data.reply) {
+        appendMessage(data.reply, 'bot');
+        logTrace(`Respuesta recibida correctamente (${data.reply.length} chars).`);
+      } else {
+        appendMessage('⚠️ Respuesta vacía desde el backend.', 'bot');
+        logTrace('⚠️ Respuesta con payload vacío.');
+      }
+    } catch (error) {
+      removeMessage(loadingId);
+      appendMessage('❌ Error de comunicación con la API.', 'bot');
+      logTrace(`❌ Fallo en fetch: ${error.message}`);
+    }
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === 'Enter') sendMessage();
+  }
+
+  function appendMessage(text, sender) {
+    const container = document.getElementById('chatMessages');
+    const msgDiv = document.createElement('div');
+    const id = 'msg-' + Date.now();
+    msgDiv.id = id;
+    msgDiv.classList.add('message', sender);
+    
+    // Convertir URLs impresas por el orquestador en enlaces cliqueables
+    const formattedText = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" style="color: #81c784;">$1</a>');
+    msgDiv.innerHTML = formattedText;
+
+    container.appendChild(msgDiv);
+    container.scrollTop = container.scrollHeight;
+    return id;
+  }
+
+  function removeMessage(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+
+  // Verificación inicial de salud al cargar la página
+  window.onload = checkHealth;
+</script>
+
+</body>
+</html>
