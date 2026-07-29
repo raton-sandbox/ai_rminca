@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.jsonl
+#*.jsonl
 
 # Entornos virtuales (si usas uno)
 venv/
