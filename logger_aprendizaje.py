@@ -1,23 +1,94 @@
 # -*- coding: utf-8 -*-
 """
 Módulo Independiente: logger_aprendizaje.py
-Versión: 1.0.0 - Persistencia de Interacciones Reales y Filtrado Defensivo Anti-Spam
-Timestamp: 2026-07-03T12:05:00-05:00
+Versión: 2.1.0 - Persistencia remota vía GitHub REST API sobre rama aislada 'data-logs'
+Timestamp: 2026-07-28T20:29:50-05:00
+
 """
 import os
 import json
+import base64
+import requests
 from datetime import datetime
 
-# Ruta absoluta hacia el archivo de acumulación analítica
-# Obtiene la ruta del directorio base del proyecto
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-LOG_FILE_PATH = "D:/AI_RMinca/logs/interacciones_aprendizaje.jsonl"
+# =========================================================================
+# CONFIGURACIÓN DE CONEXIÓN A GITHUB VIA API
+# =========================================================================
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+
+# Nombre de usuario y repositorio de GitHub:
+GITHUB_REPO = "raton-sandbox/ai-rminca"
+
+# Ruta del archivo dentro de la rama 'data-logs'
+LOG_FILE_PATH_IN_REPO = "interacciones_aprendizaje.jsonl"
 
 # Lista negra de palabras clave de control para detener saludos triviales o spam publicitario
 SALUDOS_Y_SPAM_KEYWORDS = [
-    "hola", "hi", "bye","buenos dias", "buenas tardes", "buenas noches", "adios", 
+    "hola", "hi", "bye", "buenos dias", "buenas tardes", "buenas noches", "adios", 
     "chao", "test", "prueba", "http", "www", "click aqui", "buy now"
 ]
+
+def enviar_log_a_github(log_entry: dict) -> bool:
+    """
+    Obtiene el contenido actual del archivo .jsonl desde la rama 'data-logs', 
+    concatena la nueva línea JSON y ejecuta un commit automático vía REST API.
+    """
+    if not GITHUB_TOKEN:
+        print("⚠️ [LOGGER]: Variable GITHUB_TOKEN no configurada en Render. Omitiendo persistencia remota.")
+        return False
+
+    url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{LOG_FILE_PATH_IN_REPO}"
+    headers = {
+        "Authorization": f"token {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+
+    try:
+        nueva_linea = json.dumps(log_entry, ensure_ascii=False) + "\n"
+        
+        # 1. Consultar si el archivo ya existe EN LA RAMA 'data-logs' para obtener su contenido y SHA
+        url_get = f"{url}?ref=data-logs"
+        response = requests.get(url_get, headers=headers)
+        
+        if response.status_code == 200:
+            data = response.json()
+            sha = data["sha"]
+            contenido_actual = base64.b64decode(data["content"]).decode("utf-8")
+            contenido_actualizado = contenido_actual + nueva_linea
+        elif response.status_code == 404:
+            # Si el archivo aún no existe en data-logs, se inicializa por primera vez
+            sha = None
+            contenido_actualizado = nueva_linea
+        else:
+            print(f"⚠️ [LOGGER]: Error al consultar GitHub API: Status Code {response.status_code}")
+            return False
+
+        # 2. Codificar en Base64 (Requisito estricto de la API de contenidos de GitHub)
+        contenido_b64 = base64.b64encode(contenido_actualizado.encode("utf-8")).decode("utf-8")
+
+        # 3. Construir el payload para el commit hacia la rama 'data-logs'
+        payload = {
+            "message": f"Analytics: registro de interacción {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+            "content": contenido_b64,
+            "branch": "data-logs"
+        }
+        if sha:
+            payload["sha"] = sha
+
+        # 4. Enviar actualización a GitHub (PUT)
+        put_response = requests.put(url, headers=headers, json=payload)
+
+        if put_response.status_code in [200, 201]:
+            print("📊 [LOGGER]: Interacción real indexada de forma exitosa en GitHub (.jsonl).")
+            return True
+        else:
+            print(f"⚠️ [LOGGER]: Falló el commit en GitHub: {put_response.json()}")
+            return False
+
+    except Exception as e:
+        print(f"⚠️ [LOGGER]: Excepción al conectar con la API de GitHub: {e}")
+        return False
+
 
 def registrar_interaccion(
     prompt_usuario: str, 
@@ -28,17 +99,8 @@ def registrar_interaccion(
     metadata_http: dict = None
 ) -> bool:
     """
-    Evalúa, limpia y persiste una interacción real en el archivo de registro estructurado.
-    Excluye activamente saludos, spam e inyecciones de publicidad que degraden el dataset.
-    
-    Parámetros:
-    -----------
-    prompt_usuario : str -> El texto crudo enviado por el caminante.
-    entidades_dict : dict -> El objeto JSON de entidades extraído por Groq.
-    codigo_respuesta : str -> El string de control devuelto por el flujo analítico ("0", "4", etc.).
-    conteo_resultados : int -> Número de rutas finales que hicieron match en Pandas.
-    lista_rutas_ids : list -> IDs alfanuméricos de las rutas devueltas.
-    metadata_http : dict -> Diccionario opcional con el User-Agent y la IP procesada por el frontend.
+    Evalúa, limpia y persiste una interacción real en el repositorio de GitHub.
+    Mantendremos intacta la firma y lógica de filtrado defensivo original.
     """
     texto_clean = prompt_usuario.strip().lower()
     
@@ -47,40 +109,31 @@ def registrar_interaccion(
     # =========================================================================
     palabras = texto_clean.split()
     if len(palabras) <= 1:
-        # Ignora palabras sueltas como "hola", "ok", "?", "Minca" sin contexto
         return False
         
-    # Validar si el texto coincide exactamente con algún saludo o contiene enlaces sospechosos
     if any(keyword in texto_clean for keyword in SALUDOS_Y_SPAM_KEYWORDS) and len(palabras) <= 3:
-        # Deja pasar frases largas complejas, pero bloquea saludos cortos tipo "Hola buenos dias"
         return False
 
     # =========================================================================
     # REGLA DE FILTRADO 2: Exclusión de Consultas Sin Sentido (Ruido de Ejecución)
     # =========================================================================
     tipo_flujo = entidades_dict.get("tipo_flujo", "desconocido")
-    
-    # Si el orquestador no pudo clasificar el flujo y Pandas no encontró estructura válida, es basura
     if tipo_flujo == "desconocido" or str(codigo_respuesta).strip() == "5":
         return False
 
     # =========================================================================
     # CONSTRUCCIÓN DEL REGISTRO DE APRENDIZAJE (LOG SCHEMA)
     # =========================================================================
-    # Extracción higiénica de metadata técnica enviada por el navegador
     meta_interna = metadata_http if metadata_http is not None else {}
     ip_origen = meta_interna.get("ip_origen", "127.0.0.1")
     
-    # Anonimización mandatoria del último octeto de la IP para cumplir con privacidad de datos
     partes_ip = ip_origen.split('.')
     if len(partes_ip) == 4:
         ip_anonima = f"{partes_ip[0]}.{partes_ip[1]}.{partes_ip[2]}.XX"
     else:
         ip_anonima = "IP_ANONIMA"
 
-    # Procesar indicadores de contexto temporal
     ahora = datetime.now()
-    es_fin_de_semana = ahora.weekday() in [5, 6]  # 5 = Sábado, 6 = Domingo
     
     log_entry = {
         "timestamp": ahora.isoformat(),
@@ -92,7 +145,7 @@ def registrar_interaccion(
             "navegador": meta_interna.get("navegador", "No detectado")
         },
         "indicadores_contextuales": {
-            "es_fin_de_semana_o_festivo": es_fin_de_semana,
+            "es_fin_de_semana_o_festivo": ahora.weekday() in [5, 6],
             "hora_del_dia": ahora.strftime("%H:%M"),
             "mes_operacion": ahora.strftime("%B")
         },
@@ -111,17 +164,6 @@ def registrar_interaccion(
     }
 
     # =========================================================================
-    # PERSISTENCIA SEGURA EN DISCO LOCAL (JSON Lines APPEND MODE)
+    # PERSISTENCIA REMOTA EN GITHUB
     # =========================================================================
-    try:
-        # Asegurar de forma defensiva la existencia de la carpeta de logs
-        os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)
-        
-        with open(LOG_FILE_PATH, "a", encoding="utf-8") as f:
-            f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
-            
-        print(f"📊 [LOGGER]: Interacción real indexada de forma exitosa en el escalón de aprendizaje (.jsonl).")
-        return True
-    except Exception as e:
-        print(f"⚠️ [LOGGER]: No se pudo escribir el log analítico en disco: {e}")
-        return False
+    return enviar_log_a_github(log_entry)
