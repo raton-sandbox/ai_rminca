@@ -5,6 +5,7 @@ __pycache__/
 *.pyd
 #*.jsonl
 
+
 # Entornos virtuales (si usas uno)
 venv/
 .venv/
@@ -23,6 +24,7 @@ Desktop.ini
 
 # Carpeta con archivos txt descriptivos del website
 textos/
+logs/
 *.csv
 *.xlsx
 # Ignora los archivos temporales que crea Excel al abrir un libro (empiezan por ~$)
