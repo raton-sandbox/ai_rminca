@@ -3,7 +3,9 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-#*.jsonl
+
+logs/interacciones_aprendizaje.jsonl
+interacciones_aprendizaje.jsonl
 
 
 # Entornos virtuales (si usas uno)
