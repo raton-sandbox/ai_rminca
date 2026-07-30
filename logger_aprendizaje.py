@@ -4,6 +4,9 @@ Módulo Independiente: logger_aprendizaje.py
 Versión: 2.1.0 - Persistencia remota vía GitHub REST API sobre rama aislada 'data-logs'
 Timestamp: 2026-07-28T20:29:50-05:00
 
+Notas de Cambio (v2.1.0):
+- Ajustada la constante LOG_FILE_PATH_IN_REPO para apuntar a la raíz del repositorio ("interacciones_aprendizaje.jsonl").
+- Agregado el parámetro '?ref=data-logs' a la consulta GET para garantizar que el SHA y contenido previo sean leídos desde la rama objetivo de persistencia).
 """
 import os
 import json
