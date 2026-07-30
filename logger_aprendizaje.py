@@ -20,7 +20,7 @@ from datetime import datetime
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 # Nombre de usuario y repositorio de GitHub:
-GITHUB_REPO = "raton-sandbox/ai-rminca"
+GITHUB_REPO = "raton-sandbox/ai_rminca"
 
 # Ruta del archivo dentro de la rama 'data-logs'
 LOG_FILE_PATH_IN_REPO = "interacciones_aprendizaje.jsonl"
