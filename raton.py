@@ -43,11 +43,16 @@ from handlers.interes_zona import filtrar_por_interes_zona
 from handlers.perfil_filtro import filtrar_por_esfuerzo_y_perfil
 from handlers.zona_info import obtener_enlaces_por_zona
 from handlers.destino_puro import buscar_por_destino_puro 
-
+# Importar para registro consultas de los usuarios
 from logger_aprendizaje import registrar_interaccion
 
-# Carga las variables del archivo .env si existe en el entorno local
-load_dotenv()
+#  Módulo para inyección dinámica de definiciones/jerga desde GitHub ---
+from loader_definiciones import cargar_definiciones_jerga, formatear_jerga_para_prompt
+
+# Cargar glosario dinámico y construir el bloque del prompt una sola vez al arrancar
+DATOS_JERGA = cargar_definiciones_jerga()
+BLOQUE_GLOSARIO_PROMPT = formatear_jerga_para_prompt(DATOS_JERGA)
+
 # Inicialización del cliente oficial de Groq
 api_key = os.getenv("GROQ_API_KEY")
 
@@ -269,6 +274,8 @@ def procesar_con_ia_groq(texto_usuario: str) -> dict:
         "Tu ecosistema operativo son trochas, playas del Parque Tayrona, playas de santa marta, ríos, cafetales y senderos. "
         "Tu tarea principal es mapear el lenguaje natural del usuario (jerga de caminantes, turistas o montañistas) "
         "a los parámetros exactos requeridos por los handlers deterministas del backend.\n\n"
+        #Inyección dinámica del glosario de jerga ---
+        f"{BLOQUE_GLOSARIO_PROMPT}\n\n"
         "REGLAS CRÍTICAS DE MAPEO SEMÁNTICO:\n"
         "1. No te limites a coincidencias literales, singulares o plurales. Debes procesar SINÓNIMOS e INTENCIONES implícitas:\n"
         "   - Si el usuario dice 'lugares para bañarme', 'sitios para nadar' o 'charcos', mapea el tag de interés como 'balnearios'.\n"
