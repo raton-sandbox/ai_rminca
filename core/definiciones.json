@@ -3,196 +3,234 @@
         "entidad": "Dificultad",
         "categoria": "Alta",
         "definicion": "Montañista y senderistas que pueden pasar en aislamiento varios dias y estan en capacidad de abrir su propias trochas de conexión cuando es necesario",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "Dificultad",
         "categoria": "media alta",
         "definicion": "senderistas con buena forma física acostumbrados a superar desniveles pronunciados. Desniveles de subida de  700 – 1000 metros aproximadamente, con distancias entre los  16 y 20 kilómetros. Estos senderos son diseñados para personas que desarrollan algún tipo de actividad física en su día a día, que están habituados a ejercitarse y tienen buena resistencia muscular",
-        "horas_limite": "0.0",
-        "unnamed: 4": "senderismo de naturaleza"
+        "horas_limite": "0.0"
     },
     {
         "entidad": "Dificultad",
         "categoria": "media",
         "definicion": "senderistas habituales o debutantes con buena forma física. Estos senderos presentan una altimetría positiva superior a 400 metros, con una distancia aproximada entre 11 y 16 kilómetros de distancia. Es importante estar en buena condición de salud, sin problemas en articulaciones o problemas cardiacos",
-        "horas_limite": "0.0",
-        "unnamed: 4": "Senderismo de montaña"
+        "horas_limite": "0.0"
     },
     {
         "entidad": "Dificultad",
         "categoria": "Media – Baja",
         "definicion": "No requiere de experiencia previa en senderismo, sin embargo, es importante tener condiciones óptimas de salud, realizar deporte ocasionalmente y tener en cuenta que puede haber algunos tramos con algún grado de inclinación o pendiente durante la ruta. La distancia a recorrer en estos senderos está entre los 7 y 11 kilómetros. NIños mayores de 10 años",
-        "horas_limite": "0.0",
-        "unnamed: 4": ""
+        "horas_limite": "0.0"
     },
     {
         "entidad": "Dificultad",
         "categoria": "Baja",
         "definicion": "Principiantes y niños desde 8 años",
-        "horas_limite": "0.0",
-        "unnamed: 4": ""
+        "horas_limite": "0.0"
     },
     {
         "entidad": "Modo",
         "categoria": "Hiking",
         "definicion": "Caminar por senderos preestablecidos en un solo dia con eqipo ligero",
-        "horas_limite": "0.0",
-        "unnamed: 4": ""
+        "horas_limite": "0.0"
     },
     {
         "entidad": "Modo",
         "categoria": "Trekking",
         "definicion": "Caminar por varios dias, incluyendo rutas sin senderos establecidos, con equipado pesado en una actividad de alto rendimiento fisico",
-        "horas_limite": "0.0",
-        "unnamed: 4": ""
+        "horas_limite": "0.0"
     },
     {
         "entidad": "Duracion",
         "categoria": "Corta",
         "definicion": "Cuatro o menos horas a pie",
-        "horas_limite": "4.0",
-        "unnamed: 4": ""
+        "horas_limite": "4.0"
     },
     {
         "entidad": "Duracion",
         "categoria": "Jornada",
         "definicion": "Entre cinco horas y maximo nueve horas  a pie",
-        "horas_limite": "8.0",
-        "unnamed: 4": ""
+        "horas_limite": "8.0"
     },
     {
         "entidad": "Duracion",
         "categoria": "Larga",
         "definicion": "Varios dias a pie",
-        "horas_limite": "100.0",
-        "unnamed: 4": ""
+        "horas_limite": "100.0"
     },
     {
         "entidad": "Rio",
         "categoria": "Margen",
         "definicion": "Para determinar cual es el margen derecho o izquierdo de un rio imaginese en el centro de la corriente con el agua viniendo de cara hacia usted",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "Perfil",
         "categoria": "Montaña",
         "definicion": "Altitude mayor de 300 metros",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "Perfil",
         "categoria": "Colina",
         "definicion": "Altitud menor de 300 metros",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "Perfil",
         "categoria": "Llanura",
         "definicion": "Variaciones de altura de maximo 30metros",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "Perfil",
         "categoria": "Rural",
         "definicion": "Paisaje resultado de la intervención antropica con fines economicos, lo que lleva a paisajes homogeneos, por ejemplo potreros, o areas de cultivo",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "Perfil",
         "categoria": "Bosque premontano",
         "definicion": "Bosque entre los 800 y 2000 metross de altura generalmente humedo",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
+    },
+    {
+        "entidad": "Perfil",
+        "categoria": "Bosque galeria",
+        "definicion": "El bosque de la orilla del rio",
+        "horas_limite": ""
+    },
+    {
+        "entidad": "Perfil",
+        "categoria": "Litoral",
+        "definicion": "Zona mareal con playa de arena, rocosa, acantilado o laguna",
+        "horas_limite": ""
+    },
+    {
+        "entidad": "SINONIMOS",
+        "categoria": "Balneario",
+        "definicion": "charcos, pozos, cascadas, sitios para nadar, riachuelos, playa, charca, piscina, bahia",
+        "horas_limite": ""
+    },
+    {
+        "entidad": "SINONIMOS",
+        "categoria": "Arqueologia",
+        "definicion": "ruinas, vestigios ancestrales, caminos empedrados, terrazas de piedra, caminos ancestrales, terrazas, caminos indigenas,murallas",
+        "horas_limite": ""
+    },
+    {
+        "entidad": "SINONIMOS",
+        "categoria": "Comunidad indigena",
+        "definicion": "poblado indigena, pueblo indigena, pueblo arhuaco, pueblo wiwa, pueblo kogi,  caserio indigena, escuela indigena",
+        "horas_limite": ""
+    },
+    {
+        "entidad": "SINONIMOS",
+        "categoria": "Transporte",
+        "definicion": "chivas, colectivos, busetas, buses, taxis, carros de ruta, motos",
+        "horas_limite": ""
+    },
+    {
+        "entidad": "SINONIMOS",
+        "categoria": "Bosque seco",
+        "definicion": "bosque tayrona",
+        "horas_limite": ""
+    },
+    {
+        "entidad": "SINONIMOS",
+        "categoria": "Bosque premontano",
+        "definicion": "bosque minca, bosque bonda, bosque guachaca",
+        "horas_limite": ""
+    },
+    {
+        "entidad": "SINONIMOS",
+        "categoria": "dificultad baja",
+        "definicion": "paseo",
+        "horas_limite": ""
+    },
+    {
+        "entidad": "SINONIMOS",
+        "categoria": "dificultad media alra",
+        "definicion": "senderismo de naturaleza",
+        "horas_limite": ""
+    },
+    {
+        "entidad": "SINONIMOS",
+        "categoria": "dificultad media",
+        "definicion": "senderismo de montaña",
+        "horas_limite": ""
     },
     {
         "entidad": "ERROR",
         "categoria": "0",
         "definicion": "Operación exitosa",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "ERROR",
         "categoria": "1",
         "definicion": "Lugares geograficos no reconocidos dentro de este sistema",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "ERROR",
         "categoria": "2",
         "definicion": "No hay senderos conocidos por el sistema entre los lugares indicados",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "ERROR",
         "categoria": "3",
         "definicion": "No hay senderos en el area sin el objeto que indica, registrados en el sistema. Si quieres excluirlo intenta buscando en otra area",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "ERROR",
         "categoria": "4",
         "definicion": "Como el area que seleccionas no tiene objetos indentificados para este sistema de tu interes, ajusta tus expectativas o busca en otra area",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "ERROR",
         "categoria": "5",
         "definicion": "Area geografica no es reconocida para el sistema",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "ERROR",
         "categoria": "6",
         "definicion": "Para el area de tu interes, no se identifico el lugar que buscas. Puedes comprobar los lugares disponibles en el sitio web en la pagina para el area",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "ERROR",
         "categoria": "7",
         "definicion": "Ee",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "ERROR",
         "categoria": "8",
         "definicion": "Fe",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "ERROR",
         "categoria": "10",
         "definicion": "Soy un algoritmo, no entiendo ni requiero saludos, las palabras amables solo incrementan la huella de carbono de la IA",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "ERROR",
         "categoria": "11",
         "definicion": "Estoy triste, no vamos de camino?",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     },
     {
         "entidad": "ERROR",
         "categoria": "12",
         "definicion": "El formato esperado al preguntar es el de punto de origen y punto de destino, recuerda que los senderos se describen en uno de los sentidos pero obviamente se pueden hacer en el sentido contrario",
-        "horas_limite": "",
-        "unnamed: 4": ""
+        "horas_limite": ""
     }
 ]
