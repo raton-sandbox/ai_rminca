@@ -2,8 +2,8 @@
 ==============================================================================
 PROYECTO: Ratón de Minca - Guía de Senderos (Sierra Nevada de Santa Marta)
 ARCHIVO: test_bench.html (Página Independiente de Pruebas y Sandbox)
-TIMESTAMP: 2026-07-26T16:06:13-05:00
-DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
+TIMESTAMP: 2026-07-31 (Modificado para inversión de paneles y responsive)
+DESCRIPCIÓN: Entorno aislado para pruebas. Chat a la izquierda, controles a la derecha.
 ==============================================================================
 -->
 <!DOCTYPE html>
@@ -40,15 +40,28 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       overflow: hidden;
     }
 
-    /* Panel de Control Lateral */
+    /* Área Principal del Widget (AHORA A LA IZQUIERDA) */
+    .viewport {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-color: var(--bg-color);
+      overflow: hidden; /* Asegura que el chat no rompa el layout */
+    }
+
+    /* Panel de Control Lateral (AHORA A LA DERECHA) */
     .control-panel {
       width: 320px;
       background-color: var(--panel-bg);
-      border-right: 1px solid var(--border-color);
+      /* border-right cambiado a border-left para el nuevo orden */
+      border-left: 1px solid var(--border-color);
       padding: 20px;
       display: flex;
       flex-direction: column;
       gap: 20px;
+      overflow-y: auto; /* Permite scroll en el panel de control si es necesario */
     }
 
     .control-panel h2 {
@@ -76,6 +89,7 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       color: #fff;
       border-radius: 6px;
       font-size: 0.9rem;
+      width: 100%; /* Asegura que ocupen todo el ancho disponible */
     }
 
     .status-badge {
@@ -92,6 +106,7 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
 
     .console-log {
       flex: 1;
+      min-height: 150px; /* Altura mínima para que sea visible */
       background-color: #000;
       border: 1px solid var(--border-color);
       border-radius: 6px;
@@ -103,21 +118,12 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       white-space: pre-wrap;
     }
 
-    /* Área Principal del Widget */
-    .viewport {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      background-color: var(--bg-color);
-    }
-
     /* Estructura del Widget Chatbot */
     .chat-container {
       width: 100%;
       max-width: 450px;
-      height: 600px;
+      height: 100%; /* Ocupa el alto disponible */
+      max-height: 700px; /* Pero no más de 700px en escritorio */
       display: flex;
       flex-direction: column;
       background-color: var(--card-bg);
@@ -176,6 +182,7 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       display: flex;
       gap: 8px;
       border-top: 1px solid #2c3b42;
+      margin-top: auto; /* Empuja el input al final */
     }
 
     .chat-input-area input {
@@ -187,6 +194,7 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       color: #fff;
       font-size: 0.9rem;
       outline: none;
+      min-width: 0; /* Previene que el input rompa el flex */
     }
 
     .chat-input-area input:focus {
@@ -201,24 +209,85 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
+      white-space: nowrap;
     }
 
     .chat-input-area button:hover {
       background-color: var(--accent-hover);
     }
+
+    /* ==========================================================================
+       MEDIA QUERY PARA SMARTPHONES (MEJORA DE USABILIDAD)
+       ========================================================================== */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column; /* Apila los paneles verticalmente */
+        overflow-y: auto; /* Permite scroll en toda la página */
+        height: auto; /* Alto automático para permitir scroll */
+      }
+
+      .viewport {
+        width: 100%;
+        height: 80vh; /* El chat ocupa la mayor parte de la pantalla inicial */
+        padding: 10px;
+        position: sticky; /* Mantiene el chat visible al principio */
+        top: 0;
+        z-index: 10;
+        border-bottom: 2px solid var(--border-color);
+      }
+
+      .chat-container {
+        max-width: 100%;
+        height: 100%;
+        max-height: none; /* Sin restricción de altura en móvil */
+        border-radius: 8px; /* Bordes más sutiles */
+      }
+
+      .control-panel {
+        width: 100%;
+        border-left: none; /* Elimina borde lateral */
+        border-top: 1px solid var(--border-color); /* Borde superior separator */
+        padding: 15px;
+        overflow-y: visible; /* El scroll lo maneja el body */
+        height: auto;
+      }
+      
+      .console-log {
+          min-height: 200px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Panel de Control Técnico (Solo para Pruebas) -->
+  <!-- Vista Previa del Widget (AHORA PRIMERO EN EL HTML Y A LA IZQUIERDA) -->
+  <div class="viewport">
+    <div class="chat-container">
+      <div class="chat-header">
+        🥾 Ratón de Minca - Test
+      </div>
+      
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot">¡Hola! Soy la rata auxiliar del ratón, estoy lista para recibir preguntas<br>
+		<a href="https://sites.google.com/site/ratondeminca/tips-para-el-viajero/la-ia-rata-auxiliar"> Limitaciones y definiciones</a></div>
+      </div>
+
+      <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Escribe tu consulta aquí..." onkeypress="handleKeyPress(event)" />
+        <button onclick="sendMessage()">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel de Control Técnico (AHORA SEGUNDO EN EL HTML Y A LA DERECHA) -->
   <div class="control-panel">
     <h2>🛠️ Panel de Pruebas</h2>
     
     <div class="form-group">
       <label for="envSelect">Entorno de API:</label>
       <select id="envSelect" onchange="updateTargetUrl()">
-        <option value="http://127.0.0.1:8000">Localhost (Uvicorn - PC)</option>
-        <option value="https://ai-rminca.onrender.com">Nube (Render Cloud)</option>
+        <option value="http://127.0.0.1:8000">Localhost (PC)</option>
+        <option value="https://ai-rminca.onrender.com" selected>Nube (Cloud)</option>
         <option value="custom">Personalizado...</option>
       </select>
     </div>
@@ -243,25 +312,8 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
     </div>
   </div>
 
-  <!-- Vista Previa del Widget -->
-  <div class="viewport">
-    <div class="chat-container">
-      <div class="chat-header">
-        🥾 Ratón de Minca - Sandbox Test
-      </div>
-      
-      <div class="chat-messages" id="chatMessages">
-        <div class="message bot">¡Hola! Soy el asistente virtual de la Sierra Nevada. Estoy listo para procesar tus consultas de prueba.</div>
-      </div>
-
-      <div class="chat-input-area">
-        <input type="text" id="userInput" placeholder="Escribe tu consulta aquí..." onkeypress="handleKeyPress(event)" />
-        <button onclick="sendMessage()">Enviar</button>
-      </div>
-    </div>
-  </div>
-
 <script>
+  // El script permanece inalterado ya que la lógica no cambia con el diseño
   let activeApiUrl = document.getElementById('apiUrlInput').value;
 
   function logTrace(msg) {
@@ -319,7 +371,6 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       const response = await fetch(`${activeApiUrl}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        // 1. CAMBIO: Enviar "prompt" para que FastAPI lo entienda
         body: JSON.stringify({ prompt: messageText })
       });
 
@@ -328,7 +379,6 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
       const data = await response.json();
       removeMessage(loadingId);
 
-      // 2. CAMBIO: Leer "respuesta" (FastAPI/Groq) o "reply" por compatibilidad
       const botReply = data.respuesta || data.reply;
 
       if (botReply) {
@@ -345,8 +395,6 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
     }
   }
 
-
-
   function handleKeyPress(event) {
     if (event.key === 'Enter') sendMessage();
   }
@@ -358,7 +406,6 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
     msgDiv.id = id;
     msgDiv.classList.add('message', sender);
     
-    // Convertir URLs impresas por el orquestador en enlaces cliqueables
     const formattedText = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" style="color: #81c784;">$1</a>');
     msgDiv.innerHTML = formattedText;
 
@@ -372,7 +419,6 @@ DESCRIPCIÓN: Entorno aislado para pruebas locales/remotas del widget de chat.
     if (el) el.remove();
   }
 
-  // Verificación inicial de salud al cargar la página
   window.onload = checkHealth;
 </script>
 
