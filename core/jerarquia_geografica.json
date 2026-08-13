@@ -32,7 +32,7 @@
     {
         "zona": "El Curval",
         "padre": "Bonda",
-        "sinonimos": "El Curval"
+        "sinonimos": "El Curval, curval"
     },
     {
         "zona": "El Oasis",
@@ -255,6 +255,11 @@
         "sinonimos": "Los Naranjos"
     },
     {
+        "zona": "Los Flamencos",
+        "padre": "Dibulla",
+        "sinonimos": "Santuario de fauna y flora los flamencos,  santuario, santuario los flamencos, los flamencos"
+    },
+    {
         "zona": "Achiotes",
         "padre": "Guachaca",
         "sinonimos": "Achiotes"
@@ -345,11 +350,6 @@
         "sinonimos": "La Aguacatera, Aguacatera, Entrada a Ciudad Perdida"
     },
     {
-        "zona": "La Playita",
-        "padre": "Guachaca",
-        "sinonimos": "La Playita, Finca La Playita"
-    },
-    {
         "zona": "La Estrella",
         "padre": "Guachaca",
         "sinonimos": "La Estrella"
@@ -382,7 +382,7 @@
     {
         "zona": "Los Linderos",
         "padre": "Guachaca",
-        "sinonimos": "Los Linderos"
+        "sinonimos": "Los Linderos, linderos"
     },
     {
         "zona": "Los Muchachitos",
@@ -402,7 +402,7 @@
     {
         "zona": "Mechones",
         "padre": "Guachaca",
-        "sinonimos": "Mechones"
+        "sinonimos": "Mechones, los mechones"
     },
     {
         "zona": "Mendihuaca",
@@ -425,9 +425,9 @@
         "sinonimos": "Paloquemao"
     },
     {
-        "zona": "Poza Arco Iris",
+        "zona": "Poza Arco iris",
         "padre": "Guachaca",
-        "sinonimos": "Poza Arco Iris"
+        "sinonimos": "Poza Arco Iris, la playita,  Finca La Playita"
     },
     {
         "zona": "Puente Rio Buritaca",
@@ -488,6 +488,11 @@
         "zona": "Terrazas del Cacique",
         "padre": "Guachaca",
         "sinonimos": "Terrazas del Cacique"
+    },
+    {
+        "zona": "Uldezhaxa",
+        "padre": "Guachaca",
+        "sinonimos": "Trompito alto, Uldezhaxa"
     },
     {
         "zona": "Dibulla",
@@ -625,6 +630,11 @@
         "sinonimos": "Puente Ladino, Puente curvo"
     },
     {
+        "zona": "Hacienda San Rafael",
+        "padre": "MInca",
+        "sinonimos": "San Rafael, Haceinda San Rafael"
+    },
+    {
         "zona": "San Lorenzo",
         "padre": "Minca",
         "sinonimos": "Cerro de San Lorenzo,San Lorenzo, El Ramo"
@@ -752,7 +762,7 @@
     {
         "zona": "Gairaca",
         "padre": "Parque Tayrona",
-        "sinonimos": "Gairaca"
+        "sinonimos": "Gairaca, gayraca"
     },
     {
         "zona": "Guachaquita",
@@ -797,7 +807,7 @@
     {
         "zona": "Playa Naranjos",
         "padre": "Parque Tayrona",
-        "sinonimos": "Playa Naranjos"
+        "sinonimos": "Playa Naranjos, los naranjos"
     },
     {
         "zona": "Playa San Felipe",
@@ -900,6 +910,11 @@
         "sinonimos": "Mamatoco"
     },
     {
+        "zona": "Mamoron",
+        "padre": "Santa Marta-Urbano",
+        "sinonimos": "Mamoron, cerro del mamoron, cerro mamoron, mamancana"
+    },
+    {
         "zona": "Playa Calderon",
         "padre": "Santa Marta-Urbano",
         "sinonimos": "Playa Calderon"
@@ -920,9 +935,14 @@
         "sinonimos": "Sena Agropecuario, Sena Gaira"
     },
     {
+        "zona": "",
+        "padre": "",
+        "sinonimos": ""
+    },
+    {
         "zona": "El Limon",
         "padre": "Santa Marta-Urbano",
-        "sinonimos": "Vereda el Limon, el limon"
+        "sinonimos": "Vereda el Limon, el limon, el limón"
     },
     {
         "zona": "Aracataca",
