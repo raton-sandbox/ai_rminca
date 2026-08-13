@@ -227,15 +227,15 @@ def renderizar_respuesta_usuario(lista_rutas: list, interes_modo: str, prompt_or
             else:
                 print(f"🥾 [SENDERISMO]: {nombre_sendero}")
                 if datos.get('nombre_variante'):
-                    print(f"  • Variante/Atractivo: {datos.get('nombre_variante')}")
+                    print(f"  • Variante: {datos.get('nombre_variante')}")
                 print(f"  • Distancia total: {datos.get('distancia_km', 'N/A')} Km")
                 print(f"  • Esfuerzo / Dificultad: {datos.get('dificultad', 'N/A')}")
                 print(f"  • Duración calculada: {jornada_txt}")
                 print(f"  • Desniveles: Ascenso +{datos.get('ascenso_mt', 'N/A')}m | Descenso -{datos.get('descenso_mt', 'N/A')}m")
                 print(f"  • Soporte en la zona: {datos.get('opcion_vehiculo', 'N/A')}")
-                print(f"  • Costos de acceso/Ingreso por persona: {datos.get('costo_estimado_cop_pp', 'N/A')}")
-                print(f"  • Descripción del Entorno: {texto_descripcion}")
-                print(f"  • Álbum fotográfico y Mapas de referencia: {url_render}")
+                print(f"  • Gasto estimado dia por persona transporte, otros cargos: {datos.get('costo_estimado_cop_pp', 'N/A')}")
+                print(f"  • Lo destacado del recorrido: {texto_descripcion}")
+                print(f"  • Fotografías y Mapas : {url_render}")
             
             print("-" * 85)
 
@@ -325,7 +325,7 @@ def procesar_con_ia_groq(texto_usuario: str) -> dict:
     try:
         chat_completion = client.chat.completions.create(
             messages=[{"role": "system", "content": prompt_sistema}, {"role": "user", "content": texto_usuario}],
-            model="llama-3.1-8b-instant",
+            model="llama-3.3-70b-versatile",
             temperature=0.0,
             response_format={"type": "json_object"}
         )
